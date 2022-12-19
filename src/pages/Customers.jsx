@@ -1,9 +1,8 @@
 import React from 'react'
-import { GridComponent, ColumnsDirective, ColumnDirective, Sort, Filter, Page, ExcelExport, PdfExport, Edit, Inject} from '@syncfusion/ej2-react-grids'
+import { GridComponent, ColumnsDirective, ColumnDirective, Sort, Page, ExcelExport, PdfExport, Edit, Inject, Selection, Toolbar, Filter} from '@syncfusion/ej2-react-grids'
 
 import {customersData, customersGrid} from '../data/dummy';
 import { Header } from '../components';
-import { Toolbar } from '@syncfusion/ej2/navigations';
 
 const Customers = () => {
   return (
@@ -14,13 +13,14 @@ const Customers = () => {
         allowPaging
         allowSorting
         width="auto"
-        toolbar={['Search']}>
+        toolbar={['Delete']}
+        editSettings = {{ allowDeleting: true, allowEditing: true}}>
         <ColumnsDirective>{customersGrid.map((item, index) => {
           return(
               <ColumnDirective key={index} {...item}/>
           )
         })}</ColumnsDirective>
-        <Inject services={[Page, Toolbar]}/>
+        <Inject services={[Page, Toolbar, Selection, Edit, Sort, Filter]}/>
       </GridComponent>
     </div>
   )

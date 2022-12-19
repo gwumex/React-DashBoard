@@ -41,7 +41,6 @@ const App = () => {
             <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
               <Navbar/>
             </div>
-          </div>
           <div>
             <Routes>
               {/* Dashboard */}
@@ -67,6 +66,7 @@ const App = () => {
               <Route path='/stacked' element={<Stacked />} />
               <Route path='*' element='404 Not found' />
             </Routes>
+          </div>
           </div>
         </div>
       </BrowserRouter>
